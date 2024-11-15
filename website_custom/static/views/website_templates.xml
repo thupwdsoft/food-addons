@@ -1,0 +1,13 @@
+<!-- website_custom/views/website_templates.xml -->
+
+<odoo>
+    <template id="custom_website_layout" inherit_id="website.layout">
+        <xpath expr="//header" position="inside">
+            <t t-if="request.env.user and not request.env.user._is_public()">
+                <div class="welcome-message">
+                    <p>Chào mừng, <t t-esc="request.env.user.name"/> đến với trang web của chúng tôi!</p>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

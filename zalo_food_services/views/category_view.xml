@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+        <!-- Tree view cho Food Category -->
+        <record id="view_food_category_tree" model="ir.ui.view">
+            <field name="name">food.category.tree</field>
+            <field name="model">food.category</field>
+            <field name="arch" type="xml">
+                <tree string="Categories">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="company_id" invisible="1"/> <!-- Ẩn trường Company -->
+                    <field name="mini_app_id" invisible="1"/> <!-- Ẩn Mini App ID -->
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view cho Food Category -->
+        <record id="view_food_category_form" model="ir.ui.view">
+            <field name="name">food.category.form</field>
+            <field name="model">food.category</field>
+            <field name="arch" type="xml">
+                <form string="Category">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="company_id" invisible="1" options="{'no_create': True}"/> <!-- Ẩn trường Company -->
+                            <field name="mini_app_id" invisible="1"/> <!-- Ẩn Mini App ID -->
+                            <field name="status"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action cho Food Category -->
+        <record id="action_food_category" model="ir.actions.act_window">
+            <field name="name">Danh mục món</field>
+            <field name="res_model">food.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_food_category_tree"/>
+        </record>
+    </data>
+</odoo>

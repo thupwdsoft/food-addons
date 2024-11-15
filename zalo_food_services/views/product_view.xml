@@ -1,0 +1,43 @@
+<odoo>
+    <!-- Tree view cho sản phẩm -->
+    <record id="view_food_product_tree" model="ir.ui.view">
+        <field name="name">food.product.tree</field>
+        <field name="model">food.product</field>
+        <field name="arch" type="xml">
+            <tree string="Food Products">
+                <field name="name"/>
+                <field name="price"/>
+                <field name="category_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view cho sản phẩm -->
+    <record id="view_food_product_form" model="ir.ui.view">
+        <field name="name">food.product.form</field>
+        <field name="model">food.product</field>
+        <field name="arch" type="xml">
+            <form string="Food Product">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="category_id"/>
+                        <field name="price"/>
+                        <field name="description"/>
+                        <field name="image_url"/>
+                        <field name="topping_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action cho sản phẩm -->
+    <record id="action_food_product" model="ir.actions.act_window">
+        <field name="name">Sản phẩm</field>
+        <field name="res_model">food.product</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_food_product_tree"/>
+    </record>
+
+</odoo>

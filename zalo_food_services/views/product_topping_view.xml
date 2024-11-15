@@ -1,0 +1,35 @@
+<!-- product_topping_view.xml -->
+<odoo>
+    <record id="view_food_topping_tree" model="ir.ui.view">
+        <field name="name">food.topping.tree</field>
+        <field name="model">food.topping</field>
+        <field name="arch" type="xml">
+            <tree string="Food Topping">
+                <field name="name"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_food_topping_form" model="ir.ui.view">
+        <field name="name">food.topping.form</field>
+        <field name="model">food.topping</field>
+        <field name="arch" type="xml">
+            <form string="Food Topping">
+                <group>
+                    <field name="name"/>
+                    <field name="price"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open the Food Topping menu -->
+    <record id="action_food_topping" model="ir.actions.act_window">
+        <field name="name">Food Toppings</field>
+        <field name="res_model">food.topping</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_food_topping_tree"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,9 @@
+/* website_custom/static/src/css/style.css */
+
+.welcome-message {
+    background-color: #f0f8ff;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}

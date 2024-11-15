@@ -1,0 +1,49 @@
+<odoo>
+    <!-- Tree view cho Order Item -->
+    <record id="view_food_order_item_tree" model="ir.ui.view">
+        <field name="name">food.order.item.tree</field>
+        <field name="model">food.order.item</field>
+        <field name="arch" type="xml">
+            <tree string="Danh sách Order Item (Pending và Cancelled)">
+                <field name="order_id"/>
+                <field name="product_id"/>
+                <field name="quantity"/>
+                <field name="price_unit"/>
+                <field name="price_subtotal" readonly="1"/>
+                <field name="status"/>
+                <field name="notes"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view cho Order Item -->
+    <record id="view_food_order_item_form" model="ir.ui.view">
+        <field name="name">food.order.item.form</field>
+        <field name="model">food.order.item</field>
+        <field name="arch" type="xml">
+            <form string="Chi tiết Order Item">
+                <sheet>
+                    <group>
+                        <field name="order_id" readonly="1"/>
+                        <field name="product_id"/>
+                        <field name="quantity"/>
+                        <field name="price_unit"/>
+                        <field name="price_subtotal" readonly="1"/>
+                        <field name="status" readonly="1"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action cho Order Item -->
+    <record id="action_food_order_item" model="ir.actions.act_window">
+        <field name="name">Danh sách món gọi</field>
+        <field name="res_model">food.order.item</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('status', 'in', ['pending', 'confirmed', 'cancelled'])]</field>
+        <field name="view_id" ref="view_food_order_item_tree"/>
+    </record>
+
+</odoo>

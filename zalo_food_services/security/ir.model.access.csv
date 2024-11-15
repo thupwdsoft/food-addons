@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_food_category,access.food.category,model_food_category,,1,1,1,1
+access_food_product,access.food.product,model_food_product,,1,1,1,1
+access_food_order,access.food.order,model_food_order,,1,1,1,1
+access_food_order_item,access.food.order.item,model_food_order_item,,1,1,1,1
+access_food_order_session,access.food.order.session,model_food_order_session,,1,1,1,1
+access_food_owner,access.food.owner,model_food_owner,,1,1,1,1
+access_oa_account,access.oa.account,model_oa_account,,1,1,1,1
+access_oa_follower,access.oa.follower,model_oa_follower,,1,1,1,1
+access_res_company,access.res.company,model_res_company,,1,1,1,1
+access_food_table,access.food.table,model_food_table,,1,1,1,1
+access_food_topping,access.food.topping,model_food_topping,,1,1,1,1

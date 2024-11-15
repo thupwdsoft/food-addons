@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!-- Tree View for Owner -->
+        <record id="view_food_owner_tree" model="ir.ui.view">
+            <field name="name">food.owner.tree</field>
+            <field name="model">food.owner</field>
+            <field name="arch" type="xml">
+                <tree string="Owners">
+                    <field name="owner_id"/>
+                    <field name="owner_name"/>
+                    <field name="role"/>
+                    <field name="status"/>
+                    <!-- Hiển thị APP-ID ở Tree View nếu cần -->
+                    <field name="mini_app_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Owner -->
+        <record id="view_food_owner_form" model="ir.ui.view">
+            <field name="name">food.owner.form</field>
+            <field name="model">food.owner</field>
+            <field name="arch" type="xml">
+                <form string="Owner">
+                    <sheet>
+                        <group>
+                            <field name="owner_id" readonly="1"/>
+                            <field name="owner_name"/>
+                            <field name="role"/>
+                            <field name="status"/>
+                            <field name="avatar"/>
+                            <field name="phone"/>
+                            <!-- Ẩn mini_app_id trong form -->
+                            <field name="mini_app_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for Owner Menu -->
+        <record id="action_food_owner" model="ir.actions.act_window">
+            <field name="name">Người dùng</field>
+            <field name="res_model">food.owner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_food_owner_tree"/>
+        </record>
+
+    </data>
+</odoo>

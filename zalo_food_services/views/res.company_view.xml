@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <!-- Kế thừa view của res.company để thêm các trường mới -->
+        <record id="view_res_company_form_inherit_custom" model="ir.ui.view">
+            <field name="name">res.company.form.inherit.custom</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <!-- Thêm các trường dưới trường 'Mã số thuế' (vat) -->
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="mini_app_id"/>
+                    <field name="is_active"/>
+                    <field name="is_visible_order"/>
+                    <field name="logo_url"/>
+                    <field name="cover_url"/>
+                    <field name="description"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Hành động mở view của res.company -->
+        <record id="action_company_form_custom" model="ir.actions.act_window">
+            <field name="name">Công ty</field>
+            <field name="res_model">res.company</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Manage your company details here.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

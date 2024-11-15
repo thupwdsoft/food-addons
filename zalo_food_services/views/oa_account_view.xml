@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <!-- Tree view cho OA Account -->
+        <record id="view_oa_account_tree" model="ir.ui.view">
+            <field name="name">oa.account.tree</field>
+            <field name="model">oa.account</field>
+            <field name="arch" type="xml">
+                <tree string="OA Accounts">
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="avatar_url"/>
+                    <field name="cover_url"/>
+                    <field name="mini_app_id" readonly="1"/> <!-- Hiển thị APP-ID -->
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view cho OA Account -->
+        <record id="view_oa_account_form" model="ir.ui.view">
+            <field name="name">oa.account.form</field>
+            <field name="model">oa.account</field>
+            <field name="arch" type="xml">
+                <form string="OA Account">
+                    <sheet>
+                        <group>
+                            <field name="oa_id" readonly="1"/>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="avatar_url"/>
+                            <field name="cover_url"/>
+                            <field name="mini_app_id" readonly="1"/> <!-- Hiển thị APP-ID -->
+                            <field name="follower_ids" widget="one2many_list">
+                                <tree>
+                                    <field name="user_id"/>
+                                    <field name="followed"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action cho OA Account -->
+        <record id="action_food_oa_account" model="ir.actions.act_window">
+            <field name="name">Tài khoản OA</field>
+            <field name="res_model">oa.account</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_oa_account_tree"/>
+        </record>
+    </data>
+</odoo>

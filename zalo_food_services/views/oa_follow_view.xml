@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <!-- Tree view cho OA Follower -->
+        <record id="view_oa_follower_tree" model="ir.ui.view">
+            <field name="name">oa.follower.tree</field>
+            <field name="model">oa.follower</field>
+            <field name="arch" type="xml">
+                <tree string="OA Followers">
+                    <field name="user_id"/>
+                    <field name="oa_id"/>
+                    <field name="followed"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view cho OA Follower -->
+        <record id="view_oa_follower_form" model="ir.ui.view">
+            <field name="name">oa.follower.form</field>
+            <field name="model">oa.follower</field>
+            <field name="arch" type="xml">
+                <form string="OA Follower">
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="oa_id"/>
+                            <field name="followed"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action cho OA Follower -->
+        <record id="oa_follower_action" model="ir.actions.act_window">
+            <field name="name">OA Quan tâm</field>
+            <field name="res_model">oa.follower</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_oa_follower_tree"/>
+        </record>
+    </data>
+</odoo>

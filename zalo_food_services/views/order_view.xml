@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <!-- Tree view cho Food Order -->
+        <record id="view_food_order_tree" model="ir.ui.view">
+            <field name="name">food.order.tree</field>
+            <field name="model">food.order</field>
+            <field name="arch" type="xml">
+                <tree string="Orders">
+                    <field name="order_number"/>
+                    <field name="owner_name"/>
+                    <field name="zalo_id"/>
+                    <field name="table_id"/>
+                    <field name="status"/>
+                    <field name="total_amount"/>
+                    <field name="create_date"/>
+                    <field name="mini_app_id" invisible="1"/> <!-- Ẩn APP-ID trong tree view -->
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view cho Food Order -->
+        <record id="view_food_order_form" model="ir.ui.view">
+            <field name="name">food.order.form</field>
+            <field name="model">food.order</field>
+            <field name="arch" type="xml">
+                <form string="Order" >
+                    <sheet>
+                        <group>
+                            <field name="order_number" readonly="1"/>
+                            <field name="owner_name"/>
+                            <field name="zalo_id"/>
+                            <field name="customer_phone"/>
+                            <field name="table_id"/>
+                            <field name="status"/>
+                            <field name="payment_method"/>
+                            <field name="total_amount" readonly="1"/>
+                            <field name="create_date" readonly="1"/>
+                            <field name="mini_app_id" invisible="1"/> <!-- Ẩn APP-ID trong form view -->
+                        </group>
+                        <notebook>
+                            <page string="Order Items">
+                                <field name="order_item_ids">
+                                    <tree editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="quantity"/>
+                                        <field name="price_unit"/>
+                                        <field name="price_subtotal" readonly="1"/>
+                                        <field name="status"/>
+                                        <field name="topping_ids" string="Toppings"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action cho Food Order -->
+        <record id="action_food_order" model="ir.actions.act_window">
+            <field name="name">Chi tiết Đơn hàng</field>
+            <field name="res_model">food.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_food_order_tree"/>
+        </record>
+    </data>
+</odoo>

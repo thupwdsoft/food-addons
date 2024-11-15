@@ -1,0 +1,22 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Sequence for Food Order -->
+        <record id="seq_food_order" model="ir.sequence">
+            <field name="name">Food Order</field>
+            <field name="code">food.order</field>
+            <field name="prefix">FO</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Sequence for Order Session -->
+        <record id="seq_food_order_session" model="ir.sequence">
+            <field name="name">Order Session</field>
+            <field name="code">food.order_session</field>
+            <field name="prefix">SES</field>
+            <field name="padding">6</field>
+            <field name="number_increment">1</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <!-- Menu chính cho Zalo Food Services -->
+        <menuitem id="menu_food_management" name="Zalo Food Services" sequence="10"/>
+
+        <!-- Menu con cho các đối tượng quản lý trong hệ thống -->
+        <menuitem id="menu_food_table" name="Danh sách bàn" parent="menu_food_management" action="action_food_table" sequence="10"/>
+        <menuitem id="menu_food_category" name="Menu" parent="menu_food_management" action="action_food_category" sequence="20"/>
+        <menuitem id="menu_food_product" name="Sản phẩm" parent="menu_food_management" action="action_food_product" sequence="30"/>
+        <menuitem id="menu_food_topping" name="Toppings" parent="menu_food_management" action="action_food_topping" sequence="40"/>
+        <menuitem id="menu_food_order" name="Đơn hàng" parent="menu_food_management" action="action_food_order" sequence="50"/>
+        <menuitem id="menu_food_company" name="Công ty" parent="menu_food_management" action="action_company_form_custom" sequence="60"/>
+
+        <!-- Menu root cho Người dùng -->
+        <menuitem id="menu_food_account_root" name="Tài khoản" parent="menu_food_management" sequence="70"/>
+
+        <!-- Các menu con trong menu "Tài khoản" -->
+        <menuitem id="menu_food_owner" name="Tài khoản Zalo" parent="menu_food_account_root" action="action_food_owner" sequence="71"/>
+        <menuitem id="menu_food_oa_account" name="Tài khoản OA" parent="menu_food_account_root" action="action_food_oa_account" sequence="72"/>
+        <menuitem id="menu_food_oa_follow" name="OA Follow" parent="menu_food_account_root" action="oa_follower_action" sequence="73"/>
+    </data>
+</odoo>
